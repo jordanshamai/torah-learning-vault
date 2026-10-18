@@ -9,7 +9,7 @@ if (Test-Path $Dest) { Write-Host "$Dest already exists. Pass another folder."; 
 Write-Host "Downloading to $Dest"
 if (Get-Command git -ErrorAction SilentlyContinue) {
   git clone --quiet "https://github.com/$Repo.git" $Dest
-} else { Write-Host "Needs git (git-scm.com) or the GitHub CLI (cli.github.com)."; exit 1 }
+} else { Write-Host "Needs git: install from git-scm.com."; exit 1 }
 Remove-Item "$Dest\update.sh" -ErrorAction SilentlyContinue
 
 # Add it to Obsidian's vault list (Obsidian must be closed while we edit it)
