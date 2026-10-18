@@ -1,0 +1,10 @@
+---
+masc:
+fem:
+masc_pl:
+fem_pl:
+infinitive:
+type:
+page:
+lesson:
+---

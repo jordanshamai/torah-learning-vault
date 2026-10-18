@@ -1,0 +1,83 @@
+filters:
+  and:
+    - file.inFolder("Torah")
+formulas:
+  mentions: file.backlinks.length
+properties:
+  file.name:
+    displayName: Name
+  note.aliases:
+    displayName: Hebrew
+  note.sefer:
+    displayName: Sefer
+  formula.mentions:
+    displayName: Mentions
+views:
+  - type: table
+    name: Pesukim
+    filters:
+      and:
+        - file.hasProperty("perek")
+    groupBy:
+      property: sefer
+      direction: ASC
+    order:
+      - file.name
+      - aliases
+      - formula.mentions
+    sort:
+      - property: aliases
+        direction: DESC
+      - property: file.name
+        direction: DESC
+      - property: perek
+        direction: ASC
+      - property: pasuk
+        direction: ASC
+    columnSize:
+      file.name: 135
+      note.aliases: 105
+  - type: table
+    name: Parshiyos
+    filters:
+      and:
+        - file.inFolder("Torah")
+        - file.hasProperty("number")
+    groupBy:
+      property: sefer
+      direction: ASC
+    order:
+      - file.name
+      - aliases
+      - formula.mentions
+    sort:
+      - property: number
+        direction: ASC
+  - type: table
+    name: This Sefer
+    filters:
+      and:
+        - file.hasProperty("perek")
+        - file.inFolder(this.file.folder)
+    order:
+      - file.name
+      - aliases
+      - formula.mentions
+    sort:
+      - property: perek
+        direction: ASC
+      - property: pasuk
+        direction: ASC
+  - type: table
+    name: Sefer Parshiyos
+    filters:
+      and:
+        - file.hasProperty("number")
+        - file.inFolder(this.file.folder)
+    order:
+      - file.name
+      - aliases
+      - formula.mentions
+    sort:
+      - property: number
+        direction: ASC

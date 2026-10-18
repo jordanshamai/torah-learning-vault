@@ -1,0 +1,36 @@
+filters:
+  and:
+    - file.inFolder("Lectures")
+    - file.ext == "md"
+properties:
+  file.name:
+    displayName: Lecture
+  note.date:
+    displayName: Date
+  note.lecturer:
+    displayName: Lecturer
+  note.topics:
+    displayName: Topics
+views:
+  - type: table
+    name: Recent
+    order:
+      - file.name
+      - date
+      - lecturer
+      - topics
+    sort:
+      - property: date
+        direction: DESC
+  - type: table
+    name: By Lecturer
+    groupBy:
+      property: lecturer
+      direction: ASC
+    order:
+      - file.name
+      - date
+      - topics
+    sort:
+      - property: date
+        direction: DESC

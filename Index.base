@@ -1,0 +1,63 @@
+filters:
+  and:
+    - file.ext == "md"
+    - not:
+        - file.inFolder("Templates")
+formulas:
+  class: file.folder.split("/")[0]
+properties:
+  file.name:
+    displayName: Definition
+  note.masc:
+    displayName: M (s.)
+  note.fem:
+    displayName: F (s.)
+  note.masc_pl:
+    displayName: M (pl.)
+  note.fem_pl:
+    displayName: F (pl.)
+  note.infinitive:
+    displayName: Infinitive
+  note.type:
+    displayName: Type
+  note.page:
+    displayName: Page
+  note.lesson:
+    displayName: Lesson
+  file.folder:
+    displayName: Folder
+  file.mtime:
+    displayName: Edited
+  formula.class:
+    displayName: Class
+views:
+  - type: table
+    name: Recent
+    order:
+      - file.name
+      - file.folder
+      - file.mtime
+    sort:
+      - property: file.mtime
+        direction: DESC
+    limit: 25
+  - type: table
+    name: All Vocab
+    filters:
+      or:
+        - file.inFolder("Hebrew/Words")
+        - file.inFolder("Loshon Hakodesh/Words")
+    groupBy:
+      property: formula.class
+      direction: ASC
+    order:
+      - file.name
+      - note.masc
+      - note.fem
+      - note.masc_pl
+      - note.fem_pl
+      - note.infinitive
+      - note.type
+    sort:
+      - property: file.name
+        direction: ASC

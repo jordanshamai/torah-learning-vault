@@ -1,0 +1,44 @@
+{
+  "data_version": 2,
+  "command_timeout": 5,
+  "templates_folder": "Templates",
+  "templates_pairs": [],
+  "trigger_on_file_creation_mode": "regex",
+  "auto_jump_to_cursor": true,
+  "jump_to_cursor_after_file_name": false,
+  "shell_path": "",
+  "user_scripts_folder": "",
+  "folder_templates": [],
+  "file_templates": [
+    {
+      "regex": "(^|/)(Bereishis|Shemos|Vayikra|Bamidbar|Devarim) \\d+\\.\\d+\\.md$",
+      "template": "Templates/Pasuk.md"
+    },
+    {
+      "regex": "^Chumash/",
+      "template": "Templates/Chumash.md"
+    },
+    {
+      "regex": "^Lectures/",
+      "template": "Templates/Lecture.md"
+    },
+    {
+      "regex": "^Loshon Hakodesh/Lessons/",
+      "template": "Templates/Loshon Hakodesh Lesson.md"
+    },
+    {
+      "regex": "^(Loshon Hakodesh|Hebrew)/Words/",
+      "template": "Templates/Word.md"
+    },
+    {
+      "regex": "^(Mefarshim|Concepts)/",
+      "template": "Templates/Hub.md"
+    }
+  ],
+  "syntax_highlighting": true,
+  "syntax_highlighting_mobile": false,
+  "enabled_templates_hotkeys": [],
+  "startup_templates": [],
+  "intellisense_render": "1",
+  "ignore_folders_on_creation": []
+}

@@ -1,0 +1,72 @@
+filters:
+  and:
+    - file.inFolder("Hebrew/Words")
+    - file.ext == "md"
+properties:
+  file.name:
+    displayName: Definition
+  note.masc:
+    displayName: M (s.)
+  note.fem:
+    displayName: F (s.)
+  note.masc_pl:
+    displayName: M (pl.)
+  note.fem_pl:
+    displayName: F (pl.)
+  note.infinitive:
+    displayName: Infinitive
+  note.type:
+    displayName: Type
+  note.page:
+    displayName: Page
+  note.lesson:
+    displayName: Lesson
+views:
+  - type: table
+    name: All Words
+    order:
+      - file.name
+      - masc
+      - fem
+      - masc_pl
+      - fem_pl
+      - infinitive
+      - type
+      - page
+    sort:
+      - property: page
+        direction: ASC
+      - property: file.name
+        direction: ASC
+  - type: table
+    name: By Type
+    groupBy:
+      property: type
+      direction: ASC
+    order:
+      - file.name
+      - masc
+      - fem
+      - masc_pl
+      - fem_pl
+      - infinitive
+      - page
+    sort:
+      - property: file.name
+        direction: ASC
+  - type: table
+    name: By Page
+    groupBy:
+      property: page
+      direction: ASC
+    order:
+      - file.name
+      - masc
+      - fem
+      - masc_pl
+      - fem_pl
+      - infinitive
+      - type
+    sort:
+      - property: file.name
+        direction: ASC

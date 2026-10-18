@@ -1,0 +1,50 @@
+filters:
+  and:
+    - file.inFolder("Chumash")
+    - file.ext == "md"
+properties:
+  file.name:
+    displayName: Lecture
+  note.date:
+    displayName: Date
+  note.sefer:
+    displayName: Sefer
+  note.parasha:
+    displayName: Parasha
+  note.lecturer:
+    displayName: Lecturer
+views:
+  - type: table
+    name: Recent
+    order:
+      - file.name
+      - date
+      - parasha
+      - lecturer
+    sort:
+      - property: date
+        direction: DESC
+  - type: table
+    name: By Parasha
+    groupBy:
+      property: parasha
+      direction: ASC
+    order:
+      - file.name
+      - date
+      - lecturer
+    sort:
+      - property: date
+        direction: ASC
+  - type: table
+    name: This Parasha
+    filters:
+      and:
+        - file.hasLink(this.file)
+    order:
+      - file.name
+      - date
+      - lecturer
+    sort:
+      - property: date
+        direction: DESC
