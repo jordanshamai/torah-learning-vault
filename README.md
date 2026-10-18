@@ -3,14 +3,12 @@
 An Obsidian vault for yeshiva notes. Chumash lectures link to each pasuk and Rashi, and each pasuk note collects the Hebrew text, the Metsudah translation, Rashi, and everything you've written on it.
 
 ## Setup
-You need Obsidian installed and access to this repo.
+You need Obsidian installed.
 
 **Mac:** open Terminal and run
 ```
-gh api repos/jordanshamai/torah-learning-vault/contents/install.sh -H "Accept: application/vnd.github.raw" | bash
+curl -fsSL https://raw.githubusercontent.com/jordanshamai/torah-learning-vault/main/install.sh | bash
 ```
-(Needs the GitHub CLI, signed in: `brew install gh`, then `gh auth login`.)
-Or download `install.sh` from this page and run `bash ~/Downloads/install.sh`.
 
 **Windows:** download `install.ps1`, then in PowerShell run
 ```
