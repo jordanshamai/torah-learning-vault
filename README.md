@@ -3,10 +3,25 @@
 An Obsidian vault for yeshiva notes. Chumash lectures link to each pasuk and Rashi, and each pasuk note collects the Hebrew text, the Metsudah translation, Rashi, and everything you've written on it.
 
 ## Setup
-1. Download this repo (Code → Download ZIP, or `git clone`).
-2. In Obsidian: **Open folder as vault** and pick this folder.
-3. When asked, click **Trust author and enable plugins**.
-4. **Settings → Templater:** turn on **Trigger Templater on new file creation**. This setting is per device, so it can't be included here.
+You need Obsidian installed and access to this repo.
+
+**Mac:** open Terminal and run
+```
+gh api repos/jordanshamai/torah-learning-vault/contents/install.sh -H "Accept: application/vnd.github.raw" | bash
+```
+(Needs the GitHub CLI, signed in: `brew install gh`, then `gh auth login`.)
+Or download `install.sh` from this page and run `bash ~/Downloads/install.sh`.
+
+**Windows:** download `install.ps1`, then in PowerShell run
+```
+powershell -ExecutionPolicy Bypass -File $HOME\Downloads\install.ps1
+```
+
+The vault goes in `Documents/Torah Learning Vault` and opens in Obsidian. Then:
+1. Click **Trust author and enable plugins**.
+2. **Settings → Templater:** turn on **Trigger Templater on new file creation**. This setting is per device, so it can't be included here.
+
+**Manual:** Code → Download ZIP, unzip, then in Obsidian **Open folder as vault**, and do steps 1 and 2.
 
 ## Use
 - **New Chumash lecture:** right-click `Chumash` → New note. Pick the parasha, the pasuk, and which Rashi.
